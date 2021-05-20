@@ -1,0 +1,283 @@
+Primary program start:
+PHAS
+op1  |op2|sprvv|phas|end|imm|src1_bank_ext|src2_bank_ext|--|mode|rate_hi|rate_lo_or_nosched|wait_cond|temp_count|src1_bank|src2_bank|--------|exe_addr_high|src1_n_or_exe_addr_mid|src2_n_or_exe_addr_low
+11111|010|0    |100 |0  |1  |0            |0            |00|0   |0      |0                 |111      |00000000  |00       |00       |00000000|000000       |0000000               |0000000               
+VMOV
+op1  |pred|skipinv|test_bit_2|src0_comp_sel|syncstart|dest_bank_ext|end_or_src0_bank_ext|src1_bank_ext|src2_bank_ext|move_type|repeat_count|nosched|move_data_type|test_bit_1|src0_swiz|src0_bank_sel|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_mask|dest_n|src0_n|src1_n|src2_n
+00111|000 |1      |0         |0            |0        |0            |0                   |0            |0            |00       |01          |0      |101           |0         |0100     |0            |01           |11           |00           |0011     |000010|000000|011010|000000
+VMOV
+op1  |pred|skipinv|test_bit_2|src0_comp_sel|syncstart|dest_bank_ext|end_or_src0_bank_ext|src1_bank_ext|src2_bank_ext|move_type|repeat_count|nosched|move_data_type|test_bit_1|src0_swiz|src0_bank_sel|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_mask|dest_n|src0_n|src1_n|src2_n
+00111|000 |1      |0         |0            |0        |0            |0                   |0            |0            |00       |00          |0      |101           |0         |0100     |0            |01           |10           |00           |0011     |000100|000000|000100|000000
+VPCK
+op1  |pred|skipinv|nosched|unknown|syncstart|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|-|repeat_count|src_fmt|dest_fmt|dest_mask|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n |comp_sel_3|scale|comp_sel_1|comp_sel_2|src1_n|comp0_sel_bit1|src2_n|comp_sel_0_bit0
+01000|000 |1      |0      |0      |0        |0            |0  |0            |1            |0|001         |110    |011     |0011     |10           |10           |10           |0000111|00        |0    |01        |00        |001000|0             |000000|0              
+I32MAD
+opcode1|pred|src0_high|DONTCARE|nosched|src1_high|src2_high|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|unk0|repeat_count|is_signed|is_sat|unk1|src2_type|unk2|src0_bank|dest_bank|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+10101  |00  |0        |1       |0      |0        |0        |0            |0  |0            |0            |0   |000         |1        |0     |00  |10       |000 |1        |01       |11       |11       |0001010|0000111|1000000|0111000
+I32MAD
+opcode1|pred|src0_high|DONTCARE|nosched|src1_high|src2_high|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|unk0|repeat_count|is_signed|is_sat|unk1|src2_type|unk2|src0_bank|dest_bank|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+10101  |00  |1        |1       |0      |0        |0        |0            |0  |0            |0            |0   |000         |1        |0     |00  |10       |000 |1        |10       |11       |11       |0001010|0000111|1000000|0111000
+I32MAD
+opcode1|pred|src0_high|DONTCARE|nosched|src1_high|src2_high|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|unk0|repeat_count|is_signed|is_sat|unk1|src2_type|unk2|src0_bank|dest_bank|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+10101  |00  |0        |1       |0      |0        |0        |0            |0  |0            |0            |0   |000         |1        |0     |00  |10       |000 |1        |10       |11       |11       |0000111|0001000|1000000|0111000
+I32MAD
+opcode1|pred|src0_high|DONTCARE|nosched|src1_high|src2_high|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|unk0|repeat_count|is_signed|is_sat|unk1|src2_type|unk2|src0_bank|dest_bank|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+10101  |00  |1        |1       |0      |0        |0        |0            |0  |0            |0            |0   |000         |1        |0     |00  |10       |000 |1        |10       |11       |11       |0000011|0001000|1000000|0111000
+VLDST
+op1_cnst|op1|pred|skipinv|nosched|moe_expand|sync_start|cache_ext|src0_bank_ext|src1_bank_ext|src2_bank_ext|mask_count|addr_mode|mode|dest_bank_primattr|range_enable|data_type|increment_or_decrement|src0_bank|cache_by_pass12|drc_sel|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+111     |01 |000 |1      |0      |0         |0         |0        |1            |1            |1            |1011      |00       |00  |0                 |0           |00       |0                     |0        |0              |0      |10       |10       |0101110|0001010|0000000|0000000
+VLDST
+op1_cnst|op1|pred|skipinv|nosched|moe_expand|sync_start|cache_ext|src0_bank_ext|src1_bank_ext|src2_bank_ext|mask_count|addr_mode|mode|dest_bank_primattr|range_enable|data_type|increment_or_decrement|src0_bank|cache_by_pass12|drc_sel|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+111     |01 |000 |1      |0      |0         |0         |0        |0            |1            |1            |1011      |00       |00  |0                 |0           |00       |0                     |1        |0              |0      |10       |10       |0100010|0001010|0000000|0000000
+VLDST
+op1_cnst|op1|pred|skipinv|nosched|moe_expand|sync_start|cache_ext|src0_bank_ext|src1_bank_ext|src2_bank_ext|mask_count|addr_mode|mode|dest_bank_primattr|range_enable|data_type|increment_or_decrement|src0_bank|cache_by_pass12|drc_sel|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+111     |01 |000 |1      |0      |0         |0         |0        |0            |1            |1            |1011      |00       |00  |0                 |0           |00       |0                     |1        |0              |0      |10       |10       |0010110|0000111|0000000|0000000
+VLDST
+op1_cnst|op1|pred|skipinv|nosched|moe_expand|sync_start|cache_ext|src0_bank_ext|src1_bank_ext|src2_bank_ext|mask_count|addr_mode|mode|dest_bank_primattr|range_enable|data_type|increment_or_decrement|src0_bank|cache_by_pass12|drc_sel|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+111     |01 |000 |1      |0      |0         |0         |0        |0            |1            |1            |1011      |00       |00  |0                 |0           |00       |0                     |1        |0              |0      |10       |10       |0001010|0000011|0000000|0000000
+SPEC
+op1  |----|special|category
+11111|0010|0      |10      
+VPCK
+op1  |pred|skipinv|nosched|unknown|syncstart|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|-|repeat_count|src_fmt|dest_fmt|dest_mask|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n |comp_sel_3|scale|comp_sel_1|comp_sel_2|src1_n|comp0_sel_bit1|src2_n|comp_sel_0_bit0
+01000|000 |1      |1      |0      |0        |0            |0  |0            |0            |0|000         |110    |110     |1111     |00           |10           |10           |1111100|11        |0    |01        |10        |000110|0             |000111|0              
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |0            |0000     |1      |1111     |00      |0       |01           |00           |00           |00           |111101|0001000      |000|010111|111100
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |1111      |0       |0       |0       |0       |0            |00       |00       |00    |111101|0001     |0100     |01    |0       |0            |0100     |010001
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |1111      |0       |0       |0       |0       |0            |00       |00       |00    |111101|0010     |0100     |01    |0       |0            |0100     |001011
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0011      |0       |0       |0       |0       |0            |00       |00       |00    |000101|0011     |0100     |01    |0       |0            |0100     |000101
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0011      |0       |0       |0       |0       |0            |00       |00       |00    |000110|0011     |1011     |01    |0       |0            |0100     |000110
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |0            |0000     |1      |1111     |00      |0       |01           |00           |00           |00           |111101|0001000      |000|011001|111100
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |1111      |0       |0       |0       |0       |0            |00       |00       |00    |111101|0001     |0100     |01    |0       |0            |0100     |010011
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |1111      |0       |0       |0       |0       |0            |00       |00       |00    |111101|0010     |0100     |01    |0       |0            |0100     |001101
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0011      |0       |0       |0       |0       |0            |00       |00       |00    |000010|0011     |0100     |01    |0       |0            |0100     |000111
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0011      |0       |0       |0       |0       |0            |00       |00       |00    |000011|0011     |1011     |01    |0       |0            |0100     |001000
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |0            |0000     |1      |1111     |00      |0       |01           |00           |00           |00           |111101|0001000      |000|011011|111100
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |1111      |0       |0       |0       |0       |0            |00       |00       |00    |111101|0001     |0100     |01    |0       |0            |0100     |010101
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |1111      |0       |0       |0       |0       |0            |00       |00       |00    |111101|0010     |0100     |01    |0       |0            |0100     |001111
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |0      |0011      |0       |0       |0       |0       |0            |00       |00       |00    |000100|0011     |0100     |01    |0       |0            |0100     |001001
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0011      |0       |0       |0       |0       |0            |10       |00       |00    |000100|0011     |1011     |01    |0       |0            |0100     |001010
+VPCK
+op1  |pred|skipinv|nosched|unknown|syncstart|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|-|repeat_count|src_fmt|dest_fmt|dest_mask|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n |comp_sel_3|scale|comp_sel_1|comp_sel_2|src1_n|comp0_sel_bit1|src2_n|comp_sel_0_bit0
+01000|000 |1      |1      |0      |0        |0            |0  |0            |0            |0|000         |110    |110     |0111     |00           |10           |10           |1111100|00        |0    |01        |10        |000010|0             |000011|0              
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |0            |0000     |1      |1111     |00      |0       |01           |00           |00           |00           |111101|0001000      |000|000101|111100
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |1111      |0       |0       |0       |0       |0            |00       |00       |00    |111101|0001     |0100     |01    |0       |0            |0100     |000010
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |0      |0011      |0       |0       |0       |0       |0            |01       |00       |00    |000000|0010     |0100     |01    |0       |0            |0100     |000100
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |0      |0011      |0       |0       |0       |0       |0            |01       |10       |00    |000001|0010     |1011     |01    |0       |0            |0100     |000100
+VLDST
+op1_cnst|op1|pred|skipinv|nosched|moe_expand|sync_start|cache_ext|src0_bank_ext|src1_bank_ext|src2_bank_ext|mask_count|addr_mode|mode|dest_bank_primattr|range_enable|data_type|increment_or_decrement|src0_bank|cache_by_pass12|drc_sel|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+111     |01 |000 |1      |0      |0         |0         |0        |0            |1            |1            |0010      |00       |00  |0                 |0           |00       |0                     |1        |0              |1      |10       |10       |0000000|0000011|0001100|0000000
+VLDST
+op1_cnst|op1|pred|skipinv|nosched|moe_expand|sync_start|cache_ext|src0_bank_ext|src1_bank_ext|src2_bank_ext|mask_count|addr_mode|mode|dest_bank_primattr|range_enable|data_type|increment_or_decrement|src0_bank|cache_by_pass12|drc_sel|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+111     |01 |000 |1      |0      |0         |0         |0        |0            |1            |1            |0010      |00       |00  |1                 |0           |00       |0                     |1        |0              |1      |10       |10       |0010000|0000111|0001100|0000000
+VLDST
+op1_cnst|op1|pred|skipinv|nosched|moe_expand|sync_start|cache_ext|src0_bank_ext|src1_bank_ext|src2_bank_ext|mask_count|addr_mode|mode|dest_bank_primattr|range_enable|data_type|increment_or_decrement|src0_bank|cache_by_pass12|drc_sel|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+111     |01 |000 |1      |0      |0         |0         |0        |0            |1            |1            |0010      |00       |00  |1                 |0           |00       |0                     |1        |0              |1      |10       |10       |0001001|0001010|0001100|0000000
+VLDST
+op1_cnst|op1|pred|skipinv|nosched|moe_expand|sync_start|cache_ext|src0_bank_ext|src1_bank_ext|src2_bank_ext|mask_count|addr_mode|mode|dest_bank_primattr|range_enable|data_type|increment_or_decrement|src0_bank|cache_by_pass12|drc_sel|src1_bank|src2_bank|dest_n |src0_n |src1_n |src2_n 
+111     |01 |000 |1      |0      |0         |0         |0        |1            |1            |1            |0010      |00       |00  |1                 |0           |00       |0                     |0        |0              |1      |10       |10       |0000011|0001010|0001100|0000000
+SPEC
+op1  |----|special|category
+11111|0010|0      |10      
+VPCK
+op1  |pred|skipinv|nosched|unknown|syncstart|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|-|repeat_count|src_fmt|dest_fmt|dest_mask|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n |comp_sel_3|scale|comp_sel_1|comp_sel_2|src1_n|comp0_sel_bit1|src2_n|comp_sel_0_bit0
+01000|000 |1      |1      |0      |0        |0            |0  |0            |0            |0|000         |110    |110     |1111     |00           |10           |10           |1111100|11        |0    |01        |10        |000110|0             |000111|0              
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |1            |1            |0      |0                |0  |0            |11         |0       |00          |1      |0111      |0       |0       |0       |0       |0            |00       |10       |00    |111101|0000     |0110     |00    |0       |0            |0101     |000001
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0111      |0       |0       |0       |0       |0            |00       |10       |00    |111101|0001     |0100     |01    |0       |0            |0101     |000100
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0111      |0       |0       |0       |0       |0            |00       |10       |00    |111101|0010     |0100     |01    |0       |0            |0100     |001000
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0111      |0       |0       |0       |0       |0            |00       |00       |00    |111100|0011     |0100     |01    |0       |0            |0100     |000000
+VPCK
+op1  |pred|skipinv|nosched|unknown|syncstart|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|-|repeat_count|src_fmt|dest_fmt|dest_mask|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n |comp_sel_3|scale|comp_sel_1|comp_sel_2|src1_n|comp0_sel_bit1|src2_n|comp_sel_0_bit0
+01000|000 |1      |1      |0      |0        |0            |0  |0            |0            |0|000         |110    |110     |0111     |00           |10           |10           |1111101|00        |0    |01        |10        |000000|0             |000001|0              
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0111      |0       |0       |0       |0       |0            |00       |00       |01    |111100|0000     |0100     |00    |0       |0            |0100     |000101
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0111      |0       |0       |0       |0       |0            |00       |00       |01    |111100|0001     |0100     |00    |0       |0            |0100     |000010
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |0      |0011      |0       |0       |0       |0       |0            |10       |00       |01    |000110|0010     |0100     |00    |0       |0            |0100     |000100
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |0001      |0       |0       |0       |0       |0            |10       |10       |01    |000111|0010     |0010     |00    |0       |0            |0000     |000100
+VPCK
+op1  |pred|skipinv|nosched|unknown|syncstart|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|-|repeat_count|src_fmt|dest_fmt|dest_mask|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n |comp_sel_3|scale|comp_sel_1|comp_sel_2|src1_n|comp0_sel_bit1|src2_n|comp_sel_0_bit0
+01000|000 |1      |1      |0      |0        |0            |0  |0            |0            |0|000         |110    |110     |1111     |00           |01           |01           |1111100|11        |0    |01        |10        |000000|0             |000001|0              
+VDP
+opcode1|pred|skipinv|clip_plane_enable|present_bit_0|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|clip_plane_n|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|src0_swiz_w|src0_swiz_z|src0_swiz_y|src0_swiz_x|src0_n
+00011  |000 |1      |0                |0            |1      |0                |0  |0            |00         |0       |10          |1      |0001      |0       |0       |000         |00       |11       |00    |111101|0100     |011        |010        |001        |000        |000000
+VPCK
+op1  |pred|skipinv|nosched|unknown|syncstart|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|-|repeat_count|src_fmt|dest_fmt|dest_mask|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n |comp_sel_3|scale|comp_sel_1|comp_sel_2|src1_n|comp0_sel_bit1|src2_n|comp_sel_0_bit0
+01000|000 |1      |1      |0      |0        |0            |0  |0            |0            |0|000         |110    |110     |1111     |00           |11           |11           |1111110|11        |0    |01        |10        |000110|0             |000111|0              
+VDUAL
+op1 |comp_count_type|gpi1_neg|sv_pred|skipinv|dual_op1_ext_vec3_or_has_w_vec4|type_f16|gpi1_swizz_ext|unified_store_swizz|unified_store_neg|dual_op1|dual_op2_ext|prim_ustore|gpi0_swizz|gpi1_swizz|prim_dest_bank|unified_store_slot_bank|prim_dest_num_gpi_case|prim_dest_num|dual_op2|src_config|gpi2_slot_num_bit_1|gpi2_slot_num_bit_0_or_unified_store_abs|gpi1_slot_num|gpi0_slot_num|write_mask_non_gpi|unified_store_slot_num
+0010|1              |0       |00     |1      |1                              |0       |0             |0100               |0                |001     |0           |0          |0100      |0100      |10            |00                     |01                    |0000100      |101     |00        |0                  |0                                       |00           |01           |000               |1111110               
+VDP
+opcode1|pred|skipinv|clip_plane_enable|present_bit_0|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|clip_plane_n|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|src0_swiz_w|src0_swiz_z|src0_swiz_y|src0_swiz_x|src0_n
+00011  |000 |1      |0                |0            |1      |0                |0  |0            |11         |0       |00          |1      |0001      |0       |0       |000         |00       |00       |01    |111100|0100     |011        |010        |001        |000        |111101
+VMOV
+op1  |pred|skipinv|test_bit_2|src0_comp_sel|syncstart|dest_bank_ext|end_or_src0_bank_ext|src1_bank_ext|src2_bank_ext|move_type|repeat_count|nosched|move_data_type|test_bit_1|src0_swiz|src0_bank_sel|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_mask|dest_n|src0_n|src1_n|src2_n
+00111|000 |1      |0         |0            |0        |0            |0                   |0            |0            |00       |00          |1      |101           |0         |1011     |0            |10           |00           |00           |0011     |000101|000000|111101|000000
+VDUAL
+op1 |comp_count_type|gpi1_neg|sv_pred|skipinv|dual_op1_ext_vec3_or_has_w_vec4|type_f16|gpi1_swizz_ext|unified_store_swizz|unified_store_neg|dual_op1|dual_op2_ext|prim_ustore|gpi0_swizz|gpi1_swizz|prim_dest_bank|unified_store_slot_bank|prim_dest_num_gpi_case|prim_dest_num|dual_op2|src_config|gpi2_slot_num_bit_1|gpi2_slot_num_bit_0_or_unified_store_abs|gpi1_slot_num|gpi0_slot_num|write_mask_non_gpi|unified_store_slot_num
+0010|1              |0       |00     |1      |0                              |0       |0             |1111               |0                |110     |0           |0          |0000      |0100      |10            |10                     |00                    |0000011      |001     |01        |1                  |0                                       |10           |00           |001               |0000110               
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |1            |1            |0      |0                |0  |0            |11         |0       |00          |0      |0001      |0       |0       |0       |0       |0            |10       |11       |00    |000011|0000     |0110     |00    |0       |0            |0000     |010000
+VTST
+op1  |pred|skipinv|-|onceonly|syncstart|dest_ext|src1_neg|src1_ext|src2_ext|prec|src2_vscomp|rpt_count|sign_test|zero_test|test_crcomb_and|chan_cc|pdst_n|dest_bank|src1_bank|src2_bank|dest_n |test_wben|alu_sel|alu_op|src1_n |src2_n 
+01001|000 |1      |0|0       |0        |1       |0       |0       |0       |1   |1          |00       |10       |10       |1              |001    |00    |01       |10       |11       |0000000|0        |00     |1110  |0000001|0011101
+BR
+op1  |pred|syncend|opcat_extra|op2_flow_ctrl|exception|-----|pwait|sync_ext|nosched|br_monitor|save_link|br_op|br_type|----------------|any_inst|all_inst|br_off              
+11111|001 |0      |0          |00           |0        |00000|0    |0       |0      |0         |0        |00   |1      |0000000000000000|0       |0       |00000000000000000011
+VBW
+op1_cnst|op1|pred|skipinv|nosched|repeat_sel|sync_start|dest_ext|end|src1_ext|src2_ext|repeat_count|src2_invert|src2_rot|src2_exth|op2|bitwise_partial|dest_bank|src1_bank|src2_bank|dest_n |src2_sel|src1_n |src2_n 
+01      |010|000 |1      |0      |0         |0         |0       |0  |0       |1       |0000        |0          |00000   |00       |1  |0              |10       |10       |10       |0000100|0000000 |0000011|0000000
+BR
+op1  |pred|syncend|opcat_extra|op2_flow_ctrl|exception|-----|pwait|sync_ext|nosched|br_monitor|save_link|br_op|br_type|----------------|any_inst|all_inst|br_off              
+11111|000 |0      |0          |00           |0        |00000|0    |0       |0      |0         |0        |00   |1      |0000000000000000|0       |0       |00000000000000000101
+VMAD2
+opcode1|dat_fmt|pred|skipinv|-|src0_swiz_bits2|syncstart|-|src0_abs|src1_bank_ext|src2_bank_ext|src2_swiz|src1_swiz_bit2|nosched|dest_mask|src1_mod|src2_mod|src0_bank|dest_bank|src1_bank|src2_bank|dest_n|src1_swiz_bits01|src0_swiz_bits01|src0_n|src1_n|src2_n
+00000  |0      |00  |1      |0|0              |0        |0|0       |0            |0            |000      |0             |1      |0001     |00      |00      |1        |10       |11       |11       |000010|01              |01              |000001|011111|011111
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |0            |0001     |1      |0001     |00      |0       |01           |00           |10           |11           |111100|0001000      |101|000010|011110
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |1            |0000     |0      |0001     |00      |0       |01           |00           |00           |01           |111100|0001000      |110|111100|000000
+VMAD2
+opcode1|dat_fmt|pred|skipinv|-|src0_swiz_bits2|syncstart|-|src0_abs|src1_bank_ext|src2_bank_ext|src2_swiz|src1_swiz_bit2|nosched|dest_mask|src1_mod|src2_mod|src0_bank|dest_bank|src1_bank|src2_bank|dest_n|src1_swiz_bits01|src0_swiz_bits01|src0_n|src1_n|src2_n
+00000  |0      |00  |1      |0|0              |0        |0|0       |0            |0            |001      |0             |0      |0001     |01      |00      |1        |10       |00       |10       |000010|00              |01              |000001|111100|000001
+NOP
+op1  |----|opcat_extra|op2_flow_ctrl|-----------|nop
+11111|0000|0          |00           |00000000100|101
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |0            |0000     |1      |1111     |00      |0       |01           |00           |10           |10           |111100|0001000      |000|000100|000011
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |0            |0001     |1      |1111     |00      |0       |01           |00           |00           |11           |111100|0001000      |000|111100|011101
+VPCK
+op1  |pred|skipinv|nosched|unknown|syncstart|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|-|repeat_count|src_fmt|dest_fmt|dest_mask|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n |comp_sel_3|scale|comp_sel_1|comp_sel_2|src1_n|comp0_sel_bit1|src2_n|comp_sel_0_bit0
+01000|000 |1      |1      |0      |0        |0            |0  |0            |0            |0|000         |110    |110     |0111     |00           |10           |10           |1111101|00        |0    |01        |10        |000110|0             |000111|0              
+VDP
+opcode1|pred|skipinv|clip_plane_enable|present_bit_0|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|clip_plane_n|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|src0_swiz_w|src0_swiz_z|src0_swiz_y|src0_swiz_x|src0_n
+00011  |000 |1      |0                |0            |1      |0                |0  |0            |00         |0       |10          |1      |0001      |0       |0       |000         |00       |11       |01    |111110|1111     |011        |010        |001        |000        |000000
+VMOV
+op1  |pred|skipinv|test_bit_2|src0_comp_sel|syncstart|dest_bank_ext|end_or_src0_bank_ext|src1_bank_ext|src2_bank_ext|move_type|repeat_count|nosched|move_data_type|test_bit_1|src0_swiz|src0_bank_sel|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_mask|dest_n|src0_n|src1_n|src2_n
+00111|000 |1      |0         |0            |0        |0            |0                   |0            |0            |00       |00          |1      |101           |0         |0001     |0            |00           |10           |00           |1000     |111110|000000|000001|000000
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |1      |0                |0  |0            |11         |0       |00          |1      |1111      |0       |0       |0       |0       |0            |00       |10       |00    |111100|0100     |0100     |10    |0       |0            |0000     |000010
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |10             |0        |0            |0          |1            |0            |0100     |0      |0011     |00      |0       |00           |01           |10           |00           |000000|0100100      |001|000000|111100
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |00             |0        |0            |1          |0            |0            |1011     |1      |0011     |00      |0       |00           |01           |11           |00           |000001|1100001      |001|011100|111100
+VPCK
+op1  |pred|skipinv|nosched|unknown|syncstart|dest_bank_ext|end|src1_bank_ext|src2_bank_ext|-|repeat_count|src_fmt|dest_fmt|dest_mask|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n |comp_sel_3|scale|comp_sel_1|comp_sel_2|src1_n|comp0_sel_bit1|src2_n|comp_sel_0_bit0
+01000|000 |1      |1      |0      |0        |0            |0  |0            |0            |0|000         |110    |110     |0111     |00           |10           |10           |1111100|00        |0    |01        |10        |000000|0             |000001|0              
+VDP
+opcode1|pred|skipinv|clip_plane_enable|present_bit_0|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|clip_plane_n|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|src0_swiz_w|src0_swiz_z|src0_swiz_y|src0_swiz_x|src0_n
+00011  |000 |1      |0                |0            |1      |0                |0  |0            |00         |0       |10          |1      |0001      |0       |0       |000         |00       |11       |00    |111101|1111     |011        |010        |001        |000        |001000
+VDP
+opcode1|pred|skipinv|clip_plane_enable|present_bit_0|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|clip_plane_n|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|src0_swiz_w|src0_swiz_z|src0_swiz_y|src0_swiz_x|src0_n
+00011  |000 |1      |0                |0            |0      |0                |0  |0            |11         |0       |00          |1      |0001      |0       |0       |000         |00       |00       |01    |111100|0100     |011        |010        |001        |000        |111101
+VCOMP
+op1  |pred|skipinv|dest_type|syncstart|dest_bank_ext|end|src1_bank_ext|-|repeat_count|nosched|op2|src_type|src1_mod|src_comp|-|dest_bank|src1_bank|--|dest_n |-------|src1_n |---|write_mask
+00110|000 |1      |00       |0        |0            |0  |0            |0|0000        |1      |01 |00      |00      |00      |0|00       |00       |00|1111100|0000000|1111100|000|0001      
+VCOMP
+op1  |pred|skipinv|dest_type|syncstart|dest_bank_ext|end|src1_bank_ext|-|repeat_count|nosched|op2|src_type|src1_mod|src_comp|-|dest_bank|src1_bank|--|dest_n |-------|src1_n |---|write_mask
+00110|000 |1      |00       |0        |0            |0  |0            |0|0000        |1      |00 |00      |00      |00      |0|00       |00       |00|1111100|0000000|1111100|000|0001      
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |0            |1            |0      |0                |0  |0            |11         |0       |00          |1      |0001      |1       |0       |0       |0       |1            |00       |11       |00    |111100|0111     |0000     |00    |0       |0            |0100     |011000
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |0            |0000     |1      |0001     |00      |0       |01           |00           |00           |11           |111100|0001000      |101|111100|001111
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |1            |0000     |0      |0001     |00      |0       |01           |00           |00           |01           |111100|0001000      |110|111100|000000
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |1            |1            |0      |0                |0  |0            |11         |0       |00          |0      |0001      |0       |0       |0       |0       |0            |01       |11       |00    |000101|0000     |0110     |00    |0       |0            |0000     |001110
+SPEC
+op1  |----|special|category
+11111|0110|0      |10      
+Primary program end:
+
+
+
+Secondary program start:
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |00             |0        |0            |1          |0            |0            |0000     |1      |0001     |10      |1       |00           |10           |10           |10           |001110|1001001      |001|010000|010000
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |00             |0        |0            |0          |0            |0            |0000     |0      |0001     |00      |1       |00           |00           |10           |10           |111100|0000000      |001|001110|010001
+VTSTMSK
+op1  |pred|skipinv|-|onceonly|syncstart|dest_ext|test_flag_2|src1_ext|src2_ext|prec|src2_vscomp|rpt_count|sign_test|zero_test|test_crcomb_and|-|tst_mask_type|--|dest_bank|src1_bank|src2_bank|dest_n |test_wben|alu_sel|alu_op|src1_n |src2_n 
+01111|000 |1      |1|0       |0        |0       |0          |0       |0       |1   |0          |00       |01       |10       |1              |0|00           |00|10       |00       |10       |0001110|1        |00     |1110  |1111100|0011110
+VBW
+op1_cnst|op1|pred|skipinv|nosched|repeat_sel|sync_start|dest_ext|end|src1_ext|src2_ext|repeat_count|src2_invert|src2_rot|src2_exth|op2|bitwise_partial|dest_bank|src1_bank|src2_bank|dest_n |src2_sel|src1_n |src2_n 
+01      |010|000 |1      |0      |0         |0         |0       |0  |0       |1       |0000        |0          |00000   |00       |1  |0              |00       |10       |10       |1111100|0000000 |0110011|0000000
+VMOV
+op1  |pred|skipinv|test_bit_2|src0_comp_sel|syncstart|dest_bank_ext|end_or_src0_bank_ext|src1_bank_ext|src2_bank_ext|move_type|repeat_count|nosched|move_data_type|test_bit_1|src0_swiz|src0_bank_sel|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_mask|dest_n|src0_n|src1_n|src2_n
+00111|000 |1      |0         |0            |0        |0            |0                   |1            |0            |10       |00          |0      |101           |1         |0000     |1            |10           |01           |00           |0001     |010000|001110|000000|111100
+V32NMAD
+opcode1|pred|skipinv|src1_swiz_10_11|syncstart|dest_bank_ext|src1_swiz_9|src1_bank_ext|src2_bank_ext|src2_swiz|nosched|dest_mask|src1_mod|src2_mod|src1_swiz_7_8|dest_bank_sel|src1_bank_sel|src2_bank_sel|dest_n|src1_swiz_0_6|op2|src1_n|src2_n
+00001  |000 |1      |01             |0        |0            |1          |0            |0            |0001     |1      |0001     |01      |0       |01           |10           |10           |10           |001111|0001000      |001|011000|011000
+VCOMP
+op1  |pred|skipinv|dest_type|syncstart|dest_bank_ext|end|src1_bank_ext|-|repeat_count|nosched|op2|src_type|src1_mod|src_comp|-|dest_bank|src1_bank|--|dest_n |-------|src1_n |---|write_mask
+00110|000 |1      |00       |0        |0            |0  |0            |0|0000        |0      |00 |00      |00      |00      |0|00       |10       |00|1111100|0000000|0001111|000|0001      
+VMAD
+opcode1|pred|skipinv|gpi1_swiz_ext|present_bit_1|opcode2|dest_use_bank_ext|end|src0_bank_ext|repeat_mode|gpi0_abs|repeat_count|nosched|write_mask|src0_neg|src0_abs|gpi1_neg|gpi1_abs|gpi0_swiz_ext|dest_bank|src0_bank|gpi0_n|dest_n|gpi0_swiz|gpi1_swiz|gpi1_n|gpi0_neg|src0_swiz_ext|src0_swiz|src0_n
+00011  |000 |1      |1            |1            |0      |0                |1  |0            |11         |0       |00          |0      |0001      |0       |0       |0       |0       |0            |10       |10       |00    |001110|0000     |0110     |00    |0       |0            |0000     |011001
+Secondary program end:

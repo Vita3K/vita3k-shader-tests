@@ -1,0 +1,34 @@
+uniform float4 sa0; 
+uniform float4 sa4;
+uniform float4 sa8;
+uniform float4 sa12;
+uniform float4 sa16;
+uniform float4 sa20;
+uniform float4 sa24;
+uniform float4 sa28;
+
+void main(
+    float4 pos,
+    float4 va0,
+    float4 va1,
+    float4 va2,
+    float4 va3,
+    float4 va4,
+    float4 va5,
+    float4 va6,
+    float4 va7,
+    out float4 outPos: POSITION,
+    out float4 vo0: TEXCOORD0,
+    out float4 vo1: TEXCOORD1,
+    out float4 vo2: TEXCOORD2,
+    out float4 dummy: TEXCOORD3
+) {
+    sa0 = sa0 + sa4 + sa8 * sa12 + 4*sa16 + sa20 * sa24 + sa28;
+    sa4 = sa4 + sa8 + sa12 * sa16 + 5*sa20 + sa24 + sa28 + sa0;
+    sa12 = sa16 + 5*sa20 + sa24 + sa28;
+    dummy = va0 + va1 + va2 + va3 + va4 + va5 + va6 + sa12 + va7 + sa4;
+    vo0 = 2*va0 + 4*va1 + 6*va2 + 2*va3 + 14*va4 + 13*va5 + 7*va6 + 2*va7;
+    vo1 = 5*va0 + 12*va1 + 10*va2 + 33*va3 + va4 + va5 + va6 + va7;
+    vo2 = va0 + va1 + va2 + va4 + va5 + 4*va6 + vo0;
+    outPos = float4(pos.x, pos.y, 1.f, 1.f);
+}
