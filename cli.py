@@ -1,5 +1,3 @@
-VITA3K_PATH = "C:\\Users\\sunho\\Documents\\dev\\Vita3K\\build-windows\\bin\\RelWithDebInfo"
-VITA3K_ENV_PATH = "C:\\Users\\sunho\\AppData\\Roaming\\Vita3K\\Vita3k"
 
 import click
 import pathlib
@@ -9,6 +7,12 @@ import subprocess
 import shutil
 import time
 from threading import Thread
+
+VITA3K_PATH = os.environ.get('VITA3K_PATH')
+VITA3K_ENV_PATH = os.environ.get('VITA3K_DATA')
+
+print("VITA3K_PATH: ", VITA3K_PATH)
+print("VITA3K_DATA: ", VITA3K_ENV_PATH)
 
 @click.group()
 def ftvg():
@@ -30,9 +34,6 @@ def waiter_thread(testname):
         if not noexit:
             return
         time.sleep(0.5)
-
-def vita3k_thread(pro):
-    out, err = pro.communiate()
 
 import re
 
