@@ -1,0 +1,23 @@
+INPUT
+uniforms:
+sa0: bf800000 sa1: bf800000 sa2: 3e9b06e5 sa3: 3f7f436e sa4: 3ee2749d sa5: 3f05d05f sa6: 3f2e5fb6 sa7: 3ea8d9ed sa8: 3f5e5eb2 sa9: 3f2dc7aa sa10: 3f2c2c2b sa11: 3ee1eea2 sa12: 3e915f49 sa13: 3e58107a sa14: 3f1c7924 sa15: 3d3d60f2 sa16: 3f62f10c sa17: 3e439711 sa18: 3da99c3f sa19: 3f507428 sa20: 3eafdef9 sa21: 3f7fd63d sa22: 3f71e4dd sa23: 3f1bccd3 sa24: 3e8680ab sa25: 3f1a71b5 sa26: 3f253944 sa27: 3ee7dd55 sa28: 3f6569d9 sa29: 3f16ad29 sa30: 3f14a011 sa31: 3ef58bae 
+-------------------------------------------------------
+vertex 0:
+pa4: 3ee2749d pa5: 3f05d05f pa6: 3f2e5fb6 pa7: 3ea8d9ed pa8: 3f5e5eb2 pa9: 3f2dc7aa pa10: 3f2c2c2b pa11: 3ee1eea2 pa12: 3e915f49 pa13: 3e58107a pa14: 3f1c7924 pa15: 3d3d60f2 pa16: 3f62f10c pa17: 3e439711 pa18: 3da99c3f pa19: 3f507428 pa20: 3eafdef9 pa21: 3f7fd63d pa22: 3f71e4dd pa23: 3f1bccd3 pa24: 3e8680ab pa25: 3f1a71b5 pa26: 3f253944 pa27: 3ee7dd55 pa28: 3f6569d9 pa29: 3f16ad29 pa30: 3f14a011 pa31: 3ef58bae pa32: 3f5461a6 pa33: 3d42dbb7 pa34: 3ec38065 pa35: 3d229e7e 
+vertex 1:
+pa4: 3c6436b0 pa5: 3b759bcd pa6: 3df07b2f pa7: 3f3ea5ff pa8: 3f52dce2 pa9: 3f73bc23 pa10: 3da9ee9f pa11: 3e5a97aa pa12: 3ec244e1 pa13: 3f23102e pa14: 3df9e087 pa15: 3f10b948 pa16: 3eaf80f0 pa17: 3e1b3442 pa18: 3e6d43ab pa19: 3ee9b6d6 pa20: 3f051447 pa21: 3e312e48 pa22: 3e317645 pa23: 3e8618e6 pa24: 3f2e0d14 pa25: 3f2174fe pa26: 3e9bc141 pa27: 3f7fcc11 pa28: 3eaf60eb pa29: 3ef0e3c3 pa30: 3ecc7e6c pa31: 3f7ae987 pa32: 3f16a3a8 pa33: 3f712854 pa34: 3eaf9b08 pa35: 3f6e4c73 
+vertex 2:
+pa4: 3ec711c0 pa5: 3f68442b pa6: 3f64a8f3 pa7: 3f393558 pa8: 3f0a2d65 pa9: 3f293f73 pa10: 3f61049f pa11: 3e7a91a9 pa12: 3e8b4c88 pa13: 3f1ce2ea pa14: 3f6f6d90 pa15: 3f242c1f pa16: 3ee4e685 pa17: 3e3eafa6 pa18: 3f5383fb pa19: 3e8868e5 pa20: 3ec11be8 pa21: 3f304fa6 pa22: 3f1370d8 pa23: 3f389910 pa24: 3f196485 pa25: 3e451075 pa26: 3f0ecc7d pa27: 3ecbcb93 pa28: 3f624a87 pa29: 3efd04a5 pa30: 3f5be5c1 pa31: 3f5652c3 pa32: 3f46b17c pa33: 3bd4c671 pa34: 3cba2da9 pa35: 3d6d2067 
+vertex 3:
+pa4: 3ee0e745 pa5: 3f46cb31 pa6: 3efebd79 pa7: 3f66e48c pa8: 3ebd3839 pa9: 3f245a26 pa10: 3f173c81 pa11: 3ea533c5 pa12: 3d2aeb1f pa13: 3f71235c pa14: 3f698cc6 pa15: 3f25323e pa16: 3ea2466b pa17: 3efada7b pa18: 3f21d9d8 pa19: 3eac1a32 pa20: 3e77abce pa21: 3f1db567 pa22: 3f4c6b15 pa23: 3f547ef4 pa24: 3f4fe349 pa25: 3e303129 pa26: 3e297e14 pa27: 3d1effb7 pa28: 3f4316bc pa29: 3f19499c pa30: 3db7ba11 pa31: 3da6f9a3 pa32: 3f73140e pa33: 3f0a15ea pa34: 3f47188e pa35: 3ebe636c 
+-------------------------------------------------------
+OUTPUT
+-------------------------------------------------------
+vertex 0:
+o4: ff o5: ff o6: 0 o7: ad o8: 0 o9: 0 o10: 0 o11: 0 o12: 0 o13: 0 o14: 0 o15: 0 
+vertex 1:
+o4: ff o5: ff o6: 0 o7: f3 o8: 0 o9: 0 o10: 0 o11: 0 o12: 0 o13: 0 o14: 0 o15: 0 
+vertex 2:
+o4: ff o5: ff o6: 0 o7: a9 o8: 0 o9: 0 o10: 0 o11: 0 o12: 0 o13: 0 o14: 0 o15: 0 
+vertex 3:
+o4: ff o5: ff o6: 0 o7: a4 o8: 0 o9: 0 o10: 0 o11: 0 o12: 0 o13: 0 o14: 0 o15: 0 
