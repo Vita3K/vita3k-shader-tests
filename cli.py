@@ -8,7 +8,7 @@ import shutil
 import time
 from threading import Thread
 
-VITA3K_PATH = os.environ.get('VITA3K_PATH')
+VITA3K_PATH = "C:\\Users\\sunho\\Documents\\dev\\Vita3K\\build-windows\\bin\\RelWithDebInfo"
 VITA3K_ENV_PATH = os.environ.get('VITA3K_DATA')
 
 print("VITA3K_PATH: ", VITA3K_PATH)
@@ -37,7 +37,7 @@ def waiter_thread(testname):
 
 import re
 
-CRITERIA = 5
+CRITERIA = 3
 import struct
 
 vertex_pat = re.compile(r'vertex ([0-9]+):\n(o.+)')
@@ -90,6 +90,10 @@ def test(testname):
     ftvg_path = os.path.join(VITA3K_ENV_PATH, 'ux0', 'data', 'ftvg')
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
+    maxo = 1000
+    if os.path.exists(os.path.join('tests', testname, 'regs.txt')):
+        with open(os.path.join('tests', testname, 'regs.txt')) as f:
+            maxo = int(f.read().replace('o0-o', ''))
     total = 0
     pass_total = 0
     for file in onlyfiles:
@@ -107,6 +111,8 @@ def test(testname):
 #pa0.xyzw, pa8.xyzw, pa12.xyzw, pa16.xyzw
                 for v, item in calculated.items():
                     for o, val in item.items():
+                        if int(o) > maxo:
+                            break
                         if abs(val - expexted[v][o]) > CRITERIA:
                             passed = False
                             wrongs.append('vertex {} o{} calculated: {} expexted: {}'.format(v, o, val, expexted[v][o]))
