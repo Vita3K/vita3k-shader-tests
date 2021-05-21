@@ -8,7 +8,7 @@ import shutil
 import time
 from threading import Thread
 
-VITA3K_PATH = "C:\\Users\\sunho\\Documents\\dev\\Vita3K\\build-windows\\bin\\RelWithDebInfo"
+VITA3K_PATH = os.environ.get('VITA3K_PATH')
 VITA3K_ENV_PATH = os.environ.get('VITA3K_DATA')
 
 print("VITA3K_PATH: ", VITA3K_PATH)
